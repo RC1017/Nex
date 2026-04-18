@@ -114,7 +114,7 @@ export default function App() {
               </div>
 
               {/* Game Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow anonymous-scroll overflow-y-auto pr-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow no-scrollbar overflow-y-auto pr-2">
                 {filteredGames.map((game, idx) => (
                   <GameCard 
                     key={game.id} 
@@ -172,11 +172,12 @@ export default function App() {
                 </div>
               </div>
               
-              <div className="flex-1 bg-black">
+              <div className="flex-1 bg-black overflow-hidden">
                 <iframe 
                   src={selectedGame.url}
-                  className="w-full h-full border-none grayscale-[0.2] hover:grayscale-0 transition-all"
+                  className="w-full h-full border-none"
                   title={selectedGame.title}
+                  loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
